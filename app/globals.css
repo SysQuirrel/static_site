@@ -1,0 +1,467 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match futuristic design brief with enhanced contrast */
+  --background: oklch(0.02 0.01 240);
+  --foreground: oklch(0.98 0.005 180);
+  --card: oklch(0.05 0.02 240);
+  --card-foreground: oklch(0.95 0.01 180);
+  --popover: oklch(0.08 0.02 240);
+  --popover-foreground: oklch(0.95 0.01 180);
+  --primary: oklch(0.65 0.25 180);
+  --primary-foreground: oklch(0.02 0.01 240);
+  --secondary: oklch(0.75 0.2 200);
+  --secondary-foreground: oklch(0.02 0.01 240);
+  --muted: oklch(0.1 0.02 240);
+  --muted-foreground: oklch(0.7 0.01 180);
+  --accent: oklch(0.7 0.3 160);
+  --accent-foreground: oklch(0.02 0.01 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.15 0.02 240);
+  --input: oklch(0.08 0.02 240);
+  --ring: oklch(0.65 0.25 180 / 0.5);
+  --chart-1: oklch(0.65 0.25 180);
+  --chart-2: oklch(0.75 0.2 200);
+  --chart-3: oklch(0.7 0.3 160);
+  --chart-4: oklch(0.6 0.2 220);
+  --chart-5: oklch(0.8 0.25 140);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.05 0.02 240);
+  --sidebar-foreground: oklch(0.95 0.01 180);
+  --sidebar-primary: oklch(0.65 0.25 180);
+  --sidebar-primary-foreground: oklch(0.02 0.01 240);
+  --sidebar-accent: oklch(0.75 0.2 200);
+  --sidebar-accent-foreground: oklch(0.02 0.01 240);
+  --sidebar-border: oklch(0.15 0.02 240);
+  --sidebar-ring: oklch(0.65 0.25 180 / 0.5);
+  --ripple-size: 50px;
+  --ripple-opacity: 0.6;
+  --random-border: 1px;
+  --random-scale: 0.5;
+}
+
+.dark {
+  /* Enhanced dark mode tokens for superior futuristic aesthetic */
+  --background: oklch(0.02 0.01 240);
+  --foreground: oklch(0.98 0.005 180);
+  --card: oklch(0.05 0.02 240);
+  --card-foreground: oklch(0.95 0.01 180);
+  --popover: oklch(0.08 0.02 240);
+  --popover-foreground: oklch(0.95 0.01 180);
+  --primary: oklch(0.65 0.25 180);
+  --primary-foreground: oklch(0.02 0.01 240);
+  --secondary: oklch(0.15 0.02 240);
+  --secondary-foreground: oklch(0.95 0.01 180);
+  --muted: oklch(0.1 0.02 240);
+  --muted-foreground: oklch(0.7 0.01 180);
+  --accent: oklch(0.7 0.3 160);
+  --accent-foreground: oklch(0.02 0.01 240);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.15 0.02 240);
+  --input: oklch(0.08 0.02 240);
+  --ring: oklch(0.65 0.25 180 / 0.5);
+  --chart-1: oklch(0.65 0.25 180);
+  --chart-2: oklch(0.75 0.2 200);
+  --chart-3: oklch(0.7 0.3 160);
+  --chart-4: oklch(0.6 0.2 220);
+  --chart-5: oklch(0.8 0.25 140);
+  --sidebar: oklch(0.05 0.02 240);
+  --sidebar-foreground: oklch(0.95 0.01 180);
+  --sidebar-primary: oklch(0.65 0.25 180);
+  --sidebar-primary-foreground: oklch(0.02 0.01 240);
+  --sidebar-accent: oklch(0.15 0.02 240);
+  --sidebar-accent-foreground: oklch(0.95 0.01 180);
+  --sidebar-border: oklch(0.15 0.02 240);
+  --sidebar-ring: oklch(0.65 0.25 180 / 0.5);
+  --ripple-size: 100px;
+  --ripple-opacity: 0.8;
+  --random-border: 1px;
+  --random-scale: 0.5;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  /* Enhanced futuristic theme with advanced background effects */
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    /* Advanced futuristic background with multiple layers and animations */
+    background: radial-gradient(ellipse 800px 600px at 50% 0%, rgba(0, 255, 200, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse 600px 400px at 0% 100%, rgba(0, 200, 255, 0.02) 0%, transparent 50%),
+      radial-gradient(ellipse 400px 300px at 100% 50%, rgba(100, 255, 200, 0.025) 0%, transparent 50%),
+      linear-gradient(135deg, #000000 0%, #001122 25%, #000011 50%, #001133 75%, #000000 100%);
+    background-attachment: fixed;
+    color: #ffffff !important;
+    position: relative;
+  }
+
+  /* Advanced futuristic background pattern overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 200, 0.02) 50%, transparent 100%),
+      linear-gradient(0deg, transparent 0%, rgba(0, 200, 255, 0.015) 50%, transparent 100%),
+      radial-gradient(circle at 25% 25%, rgba(0, 255, 150, 0.01) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0, 150, 255, 0.01) 0%, transparent 50%);
+    background-size: 200px 200px, 200px 200px, 400px 400px, 400px 400px;
+    animation: futuristic-grid-flow 20s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Ensure dark theme is always applied */
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Override any light theme interference */
+  .dark body {
+    background: radial-gradient(ellipse 800px 600px at 50% 0%, rgba(0, 255, 200, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse 600px 400px at 0% 100%, rgba(0, 200, 255, 0.02) 0%, transparent 50%),
+      radial-gradient(ellipse 400px 300px at 100% 50%, rgba(100, 255, 200, 0.025) 0%, transparent 50%),
+      linear-gradient(135deg, #000000 0%, #001122 25%, #000011 50%, #001133 75%, #000000 100%) !important;
+    color: #ffffff !important;
+  }
+
+  /* Enhanced water-like background with futuristic elements */
+  .water-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse 1200px 800px at 30% 20%, rgba(0, 255, 200, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 800px 600px at 70% 80%, rgba(0, 200, 255, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 600px 400px at 50% 50%, rgba(100, 255, 150, 0.04) 0%, transparent 70%),
+      linear-gradient(
+        45deg,
+        rgba(0, 50, 100, 0.1) 0%,
+        transparent 25%,
+        rgba(0, 100, 150, 0.05) 50%,
+        transparent 75%,
+        rgba(0, 150, 200, 0.08) 100%
+      );
+    z-index: 2;
+    animation: advanced-water-flow 25s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Enhanced cursor trail with futuristic glow */
+  .cursor-trail {
+    position: fixed;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 200, 0.9) 0%,
+      rgba(0, 200, 255, 0.6) 40%,
+      rgba(100, 255, 150, 0.3) 70%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+    animation: enhanced-fade-out 1s ease-out forwards;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.4), 0 0 40px rgba(0, 200, 255, 0.2), 0 0 60px rgba(100, 255, 150, 0.1);
+  }
+
+  /* Enhanced water ripple effect styles */
+  .water-ripple {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    width: var(--ripple-size, 50px);
+    height: var(--ripple-size, 50px);
+    border: 2px solid rgba(0, 255, 200, var(--ripple-opacity, 0.6));
+    background: radial-gradient(circle, rgba(0, 255, 200, 0.15) 0%, rgba(0, 200, 255, 0.08) 50%, transparent 80%);
+    animation: realistic-water-droplet 2s ease-out forwards;
+    mix-blend-mode: screen;
+    box-shadow: 0 0 20px rgba(0, 255, 200, 0.3), inset 0 0 20px rgba(0, 200, 255, 0.1);
+  }
+
+  .water-ripple-large {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9997;
+    width: var(--ripple-size, 100px);
+    height: var(--ripple-size, 100px);
+    border: 3px solid rgba(0, 255, 220, var(--ripple-opacity, 0.8));
+    background: radial-gradient(circle, rgba(0, 255, 220, 0.2) 0%, rgba(0, 220, 255, 0.12) 40%, transparent 70%);
+    animation: realistic-water-droplet-large 3s ease-out forwards;
+    mix-blend-mode: screen;
+    box-shadow: 0 0 30px rgba(0, 255, 220, 0.4), inset 0 0 30px rgba(0, 220, 255, 0.15);
+  }
+
+  /* Adding new interference ripple effect for physics interactions */
+  .water-ripple-interference {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9996;
+    width: var(--ripple-size, 30px);
+    height: var(--ripple-size, 30px);
+    border: 1px solid rgba(255, 255, 255, var(--ripple-opacity, 0.6));
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(0, 255, 255, 0.15) 50%, transparent 80%);
+    animation: interference-ripple 0.8s ease-out forwards;
+    mix-blend-mode: screen;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2), 0 0 30px rgba(0, 255, 255, 0.1);
+  }
+
+  /* Enhanced realistic water droplet animations with more random variations */
+  @keyframes realistic-water-droplet {
+    0% {
+      transform: scale(0);
+      opacity: var(--ripple-opacity, 0.8);
+      border-width: calc(2px + var(--random-border, 1px));
+      border-color: rgba(0, 255, 200, 1);
+    }
+    10% {
+      transform: scale(0.3);
+      opacity: calc(var(--ripple-opacity, 0.8) * 0.9);
+      border-width: calc(2px + var(--random-border, 0.5px));
+      border-color: rgba(0, 240, 220, 0.9);
+    }
+    30% {
+      transform: scale(1);
+      opacity: calc(var(--ripple-opacity, 0.8) * 0.7);
+      border-width: calc(1.5px + var(--random-border, 0.5px));
+      border-color: rgba(0, 220, 255, 0.7);
+    }
+    60% {
+      transform: scale(calc(2.5 + var(--random-scale, 0.5)));
+      opacity: calc(var(--ripple-opacity, 0.8) * 0.4);
+      border-width: 1px;
+      border-color: rgba(0, 200, 240, 0.5);
+    }
+    100% {
+      transform: scale(calc(4 + var(--random-scale, 1)));
+      opacity: 0;
+      border-width: 0.5px;
+      border-color: rgba(0, 180, 220, 0.2);
+    }
+  }
+
+  @keyframes realistic-water-droplet-large {
+    0% {
+      transform: scale(0);
+      opacity: var(--ripple-opacity, 0.9);
+      border-width: calc(3px + var(--random-border, 1px));
+      border-color: rgba(0, 255, 220, 1);
+    }
+    8% {
+      transform: scale(0.2);
+      opacity: calc(var(--ripple-opacity, 0.9) * 0.95);
+      border-width: calc(3px + var(--random-border, 0.5px));
+      border-color: rgba(0, 245, 255, 0.95);
+    }
+    25% {
+      transform: scale(0.8);
+      opacity: calc(var(--ripple-opacity, 0.9) * 0.8);
+      border-width: calc(2.5px + var(--random-border, 0.5px));
+      border-color: rgba(0, 230, 255, 0.8);
+    }
+    50% {
+      transform: scale(calc(2 + var(--random-scale, 0.5)));
+      opacity: calc(var(--ripple-opacity, 0.9) * 0.5);
+      border-width: 2px;
+      border-color: rgba(0, 210, 245, 0.6);
+    }
+    80% {
+      transform: scale(calc(3.5 + var(--random-scale, 1)));
+      opacity: calc(var(--ripple-opacity, 0.9) * 0.2);
+      border-width: 1px;
+      border-color: rgba(0, 190, 230, 0.3);
+    }
+    100% {
+      transform: scale(calc(5 + var(--random-scale, 1.5)));
+      opacity: 0;
+      border-width: 0.5px;
+      border-color: rgba(0, 170, 220, 0.1);
+    }
+  }
+
+  /* Enhanced glow animation with futuristic colors */
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.5), 0 0 40px rgba(0, 200, 255, 0.3), 0 0 60px rgba(100, 255, 150, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(0, 255, 220, 0.7), 0 0 60px rgba(0, 220, 255, 0.5), 0 0 80px rgba(100, 255, 180, 0.3), 0
+        0 100px rgba(0, 180, 220, 0.2);
+    }
+  }
+
+  /* Added floating animation keyframes */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+    66% {
+      transform: translateY(5px) rotate(-1deg);
+    }
+  }
+
+  @keyframes pulse-bg {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Enhanced gradient animation for text with futuristic colors */
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    25% {
+      background-position: 25% 25%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    75% {
+      background-position: 75% 75%;
+    }
+  }
+
+  /* Enhanced gradient text with futuristic color scheme */
+  .gradient-text {
+    background: linear-gradient(90deg, #00ffcc 0%, #00ccff 20%, #66ffcc 40%, #00ffcc 60%, #00ccff 80%, #00ffcc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 300% 100%;
+    animation: gradient-shift 4s ease-in-out infinite;
+  }
+
+  /* New futuristic grid animation */
+  @keyframes futuristic-grid-flow {
+    0% {
+      background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+    25% {
+      background-position: 50px 25px, -25px 50px, 100px 50px, -50px 100px;
+    }
+    50% {
+      background-position: 100px 50px, -50px 100px, 200px 100px, -100px 200px;
+    }
+    75% {
+      background-position: 150px 75px, -75px 150px, 300px 150px, -150px 300px;
+    }
+    100% {
+      background-position: 200px 100px, -100px 200px, 400px 200px, -200px 400px;
+    }
+  }
+
+  /* Enhanced fade-out animation with glow */
+  @keyframes enhanced-fade-out {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      filter: brightness(1.2);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(0.8);
+      filter: brightness(1.5);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.3);
+      filter: brightness(0.8);
+    }
+  }
+
+  /* More sophisticated water flow animation */
+  @keyframes advanced-water-flow {
+    0%,
+    100% {
+      transform: translateY(0px) scale(1) rotate(0deg);
+      filter: hue-rotate(0deg);
+    }
+    20% {
+      transform: translateY(-8px) scale(1.02) rotate(0.5deg);
+      filter: hue-rotate(10deg);
+    }
+    40% {
+      transform: translateY(5px) scale(0.98) rotate(-0.3deg);
+      filter: hue-rotate(-5deg);
+    }
+    60% {
+      transform: translateY(-3px) scale(1.01) rotate(0.2deg);
+      filter: hue-rotate(15deg);
+    }
+    80% {
+      transform: translateY(2px) scale(0.99) rotate(-0.1deg);
+      filter: hue-rotate(-8deg);
+    }
+  }
+}
